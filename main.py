@@ -196,33 +196,6 @@ class Window:
                     chapter += string
             all_chapters = all_chapters[1:]
             texts.append(chapter)
-
-        # i = 0
-        # while i in range(len(self.pdf.pages)):
-        #     header = self.pdf.pages[i].extract_text().lower()
-        #     if all_chapters[0] in header and not header.startswith("contents") and not header.startswith("cuprins"):  # if we found the chapter or subchapter title in the current page
-        #         text_parts = header.split(all_chapters[0])
-        #         text_parts = [t.split() for t in text_parts if t != ""]
-        #         text = ""
-        #         if len(text_parts) == 2:  # we found a subchapter that is in the middle of the page and splits the page in half
-        #             text += text_parts[1]
-        #         else:
-        #             text += self.pdf.pages[i].extract_text()
-        #         if i + 1 >= len(self.pdf.pages): break
-        #         i += 1
-        #         page = self.pdf.pages[i]
-        #         # no similarities with the next chapter title
-        #         while i in range(len(self.pdf.pages)) and not all_chapters[1] in page.extract_text().lower():
-        #             text += page.extract_text()
-        #             if i + 1 >= len(self.pdf.pages): break
-        #             i += 1
-        #             page = self.pdf.pages[i]
-        #         if i in range(len(self.pdf.pages)) and all_chapters[1] in page.extract_text().lower():
-        #             text_parts = header.split(all_chapters[1])
-        #             text+=text_parts[0] # the first half is the ending of the current subchapter
-        #         texts.append(text)
-        #         all_chapters = all_chapters[1:]
-        #     i += 1
         return texts
 
     def create_files(self, audio_ro, audio_en, title):
